@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <title>Website Project</title>
 
@@ -34,12 +38,18 @@
 }</style>
 
 <body>
-<h1>Platformer</h1>
-<div class="topnav">
-    <a href="index.html">Home</a>
-    <a class="active" href="platformer.html">Platformer</a>
-    <a href="#orbit">Orbit</a>
-    <a href="#about">About</a>
-</div>
+    <h1>Platformer</h1>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a class="active" href="platformer.html">Platformer</a>
+        <a href="#orbit">Orbit</a>
+        <a href="#about">About</a>
+    </div>
+    <h2>Platformer Game</h2>
+    <script src="platformer.js"></script>
+    <button onclick="play()">Play</button>
+    <button onclick="pause()">Pause</button>
+    <button  onclick="reset()">Reset</button>
+    <p id="demo"></p>
 </body>
 </html></html>
