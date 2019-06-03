@@ -98,17 +98,16 @@ function pause() {
 }
 
 function reset() {
-    play();
     mainCharacter.xSpeed = 0;
     mainCharacter.ySpeed = 0;
-    mainCharacter.direction = 'right'
+    mainCharacter.direction = 'right';
     mainCharacter.x = 200;
     mainCharacter.y = 265;
     health = 100;
     score = 0;
     for (var i = 0; i < monsterArray.length; i++) {
         if (!monsterArray[i].isDead) {
-            monsterArray[i].isDead = true
+            monsterArray[i].isDead = true;
         }
     }
     if (anyMonsterAlive === false) {
@@ -118,7 +117,6 @@ function reset() {
             monsterArray.push(newMonster);
         }
     }
-    pause();
 }
 
 function keyPressed() {
