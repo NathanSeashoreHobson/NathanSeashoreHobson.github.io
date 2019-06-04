@@ -33,7 +33,7 @@ function draw() {
     if (health <= 0) {
         background(0);
         fill("white");
-        text("GAME OVER. \nSCORE " + score, 200, 200, 200, 50);
+        text("GAME OVER \nSCORE " + score + " \nCLICK RESET TO PLAY AGAIN", 200, 200, 300, 100);
         return
     }
 
