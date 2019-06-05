@@ -11,8 +11,11 @@ var cols;
 var rows;
 var w = 20;
 var lose = false;
+var numSize;
+var gameMode = "medium";
 
 var totalBees = 30;
+var flagsLeft = totalBees;
 
 function setup() {
     createCanvas(401, 401);
@@ -49,6 +52,34 @@ function setup() {
             grid[i][j].countBees();
         }
     }
+    medium();
+}
+
+function easy() {
+    totalBees = 15;
+    totalFlags = totalBees;
+    w = 30;
+    numSize = 20;
+    gamemode = "easy";
+    playAgain();
+}
+
+function medium() {
+    totalBees = 35;
+    totalFlags = totalBees;
+    w = 20;
+    numSize = 14;
+    gameMode = "medium";
+    playAgain();
+}
+
+function hard() {
+    totalBees = 75;
+    totalFlags = totalBees;
+    w = 15;
+    numSize = 10;
+    gameMode = "hard";
+    playAgain();
 }
 
 function playAgain() {
@@ -184,6 +215,7 @@ function Cell(i, j, w) {
     this.x = i * w;
     this.y = j * w;
     this.w = w;
+    this.c = 0;
     this.neighborCount = 0;
 
     this.bee = false;
@@ -203,9 +235,15 @@ Cell.prototype.show = function() {
             fill(200);
             rect(this.x, this.y, this.w, this.w);
             if (this.neighborCount > 0) {
+                textSize(numSize);
                 textAlign(CENTER);
-                fill(0);
-                text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
+                this.c = map(this.neighborCount, 1, 4, 0, 255);
+                fill(255-this.c, this.c, 220);
+                if (gameMode === "hard") {
+                    text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 4);
+                } else {
+                    text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
+                }
             }
         }
     } else if (this.flagged) {
@@ -268,7 +306,9 @@ Cell.prototype.floodFill = function() {
 Cell.prototype.flag = function() {
     if (this.flagged) {
         this.flagged = false;
+        totalFlags += 1;
     } else if (!this.flagged) {
         this.flagged = true;
+        totalFlags -= 1;
     }
 };
