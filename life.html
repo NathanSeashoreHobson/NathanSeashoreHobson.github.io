@@ -103,7 +103,7 @@
 
 <body>
     <div class="header">
-        <h1>Orbit</h1>
+        <h1>Game of Life</h1>
     </div>
     <div class="topnav">
         <a href="index.html">Home</a>
@@ -121,14 +121,17 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a class="active" href="orbit.html">Orbit</a>
-                <a href="life.html">Game of Life</a>
+                <a href="orbit.html">Orbit</a>
+                <a class="active" href="life.html">Game of Life</a>
             </div>
         </div>
     </div>
-    <h2>N Body Simulation</h2>
-    <p>All the planets are being affected by the gravity of the other planets. Use the mouse to move the sun.</p>
-    <script src="orbit.js"></script>
+    <h2>Game of Life Simulation</h2>
+    <p>This is a recreation of the Game of Life originally created by John Conway.</p>
+    <script src="life.js"></script>
+    <button onclick="play()">Play</button>
+    <button onclick="pause()">Pause</button>
+    <button  onclick="reset()">Reset</button>
     <p id="demo"></p>
 </body>
 </html>
